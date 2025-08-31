@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Dashboard</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        font-family: "Poppins", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50 flex lg:p-5">
+    <div class="flex w-full space-x-2">
+      <!-- Sidebar -->
+      <sidebar
+        id="sidebar"
+        class="fixed lg:static top-0 left-0 h-screen lg:h-[94vh] w-16 z-50 bg-white rounded-md shadow-lg flex flex-col justify-between items-center py-4 space-y-6 transition-all duration-300 overflow-hidden -translate-x-full lg:translate-x-0"
+      >
+        <div>
+          <!-- Logo -->
+          <a href="index.html" class="logo flex items-center gap-2">
+            <div
+              class="py-2 px-3 rounded-xl font-semibold text-[#69A6FF] flex items-center gap-2"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.636 4.575a.75.75 0 0 1 0 1.061 9 9 0 0 0 0 12.728.75.75 0 1 1-1.06 1.06c-4.101-4.1-4.101-10.748 0-14.849a.75.75 0 0 1 1.06 0Zm12.728 0a.75.75 0 0 1 1.06 0c4.101 4.1 4.101 10.75 0 14.85a.75.75 0 1 1-1.06-1.061 9 9 0 0 0 0-12.728.75.75 0 0 1 0-1.06ZM7.757 6.697a.75.75 0 0 1 0 1.06 6 6 0 0 0 0 8.486.75.75 0 0 1-1.06 1.06 7.5 7.5 0 0 1 0-10.606.75.75 0 0 1 1.06 0Zm8.486 0a.75.75 0 0 1 1.06 0 7.5 7.5 0 0 1 0 10.606.75.75 0 0 1-1.06-1.06 6 6 0 0 0 0-8.486.75.75 0 0 1 0-1.06ZM9.879 8.818a.75.75 0 0 1 0 1.06 3 3 0 0 0 0 4.243.75.75 0 1 1-1.061 1.061 4.5 4.5 0 0 1 0-6.364.75.75 0 0 1 1.06 0Zm4.242 0a.75.75 0 0 1 1.061 0 4.5 4.5 0 0 1 0 6.364.75.75 0 0 1-1.06-1.06 3 3 0 0 0 0-4.243.75.75 0 0 1 0-1.061ZM10.875 12a1.125 1.125 0 1 1 2.25 0 1.125 1.125 0 0 1-2.25 0Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+              <span
+                id="logoText"
+                class="opacity-0 -translate-x-2 transition-all duration-300 hidden"
+              >
+                Webhosting
+              </span>
+            </div>
+
+            <button id="closeBtnMobile" class="lg:hidden text-2xl ml-auto">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="currentColor"
+                class="size-6 text-gray-400"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.47 5.47a.75.75 0 0 1 1.06 0L12 10.94l5.47-5.47a.75.75 0 1 1 1.06 1.06L13.06 12l5.47 5.47a.75.75 0 1 1-1.06 1.06L12 13.06l-5.47 5.47a.75.75 0 0 1-1.06-1.06L10.94 12 5.47 6.53a.75.75 0 0 1 0-1.06Z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </a>
+
+          <!-- Sidebar items inject ke sini -->
+          <div id="sidebarMenu" class="flex flex-col space-y-4 mt-16"></div>
+        </div>
+        <!-- Toggle Button -->
+
+        <button
+          id="toggleBtn"
+          class="hidden lg:flex py-2 bg-gray-100 text-gray-400 mt-20 outline-none transition-all duration-300 ease-in-out flex items-center justify-center w-10 h-10 rounded-lg"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            id="arrow"
+            class="transition-transform duration-300 size-6"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M16.28 11.47a.75.75 0 0 1 0 1.06l-7.5 7.5a.75.75 0 0 1-1.06-1.06L14.69 12 7.72 5.03a.75.75 0 0 1 1.06-1.06l7.5 7.5Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+      </sidebar>
+      <!-- Sidebar -->
+
+      <!-- Content -->
+      <main
+        class="flex-1 px-6 transition-all duration-300 w-full !mt-4 overflow-scroll-y !m-0"
+      >
+        <header class="flex items-center justify-between">
+          <div class="hidden lg:block">
+            <h1 class="text-[28px] font-medium">Welcome, Marco!</h1>
+            <h4 class="text-gray-500">
+              You are logged in to the Admin Panel. Manage users, monitor
+              services, and track revenue all in one place.
+            </h4>
+          </div>
+          <!-- Toggle Button -->
+          <button
+            id="toggleBtnMobile"
+            class="lg:hidden z-40 bg-gray-200 p-2 rounded-lg"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              class="size-6"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M3 6.75A.75.75 0 0 1 3.75 6h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 6.75ZM3 12a.75.75 0 0 1 .75-.75h16.5a.75.75 0 0 1 0 1.5H3.75A.75.75 0 0 1 3 12Zm0 5.25a.75.75 0 0 1 .75-.75H12a.75.75 0 0 1 0 1.5H3.75a.75.75 0 0 1-.75-.75Z"
+                clip-rule="evenodd"
+              />
+            </svg>
+          </button>
+          <div class="flex items-center gap-5">
+            <div class="flex items-center gap-3">
+              <!-- Search -->
+              <div class="py-2 px-2 rounded-xl bg-blue-100 text-[#69A6FF]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M10.5 3.75a6.75 6.75 0 1 0 0 13.5 6.75 6.75 0 0 0 0-13.5ZM2.25 10.5a8.25 8.25 0 1 1 14.59 5.28l4.69 4.69a.75.75 0 1 1-1.06 1.06l-4.69-4.69A8.25 8.25 0 0 1 2.25 10.5Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+              <!-- Bell -->
+              <div class="py-2 px-2 rounded-xl bg-blue-100 text-[#69A6FF]">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="currentColor"
+                  class="size-6"
+                >
+                  <path
+                    fill-rule="evenodd"
+                    d="M5.25 9a6.75 6.75 0 0 1 13.5 0v.75c0 2.123.8 4.057 2.118 5.52a.75.75 0 0 1-.297 1.206c-1.544.57-3.16.99-4.831 1.243a3.75 3.75 0 1 1-7.48 0 24.585 24.585 0 0 1-4.831-1.244.75.75 0 0 1-.298-1.205A8.217 8.217 0 0 0 5.25 9.75V9Zm4.502 8.9a2.25 2.25 0 1 0 4.496 0 25.057 25.057 0 0 1-4.496 0Z"
+                    clip-rule="evenodd"
+                  />
+                </svg>
+              </div>
+            </div>
+            <img
+              src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+              alt=""
+              class="inline-block size-10 rounded-full ring-2 ring-gray-600 outline -outline-offset-1 outline-white/10"
+            />
+          </div>
+        </header>
+
+        <section class="mt-10">
+          <div class="block lg:hidden">
+            <h1 class="text-[28px] font-medium">Welcome, Marco!</h1>
+            <h4 class="text-gray-500">
+              You are logged in to the Admin Panel. Manage users, monitor
+              services, and track revenue all in one place.
+            </h4>
+          </div>
+          <h2 class="text-lg font-semibold mb-2 mt-10 lg:mt-0">Overview</h2>
+          <div
+            id="statsContainer"
+            class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 h-auto lg:h-[120px]"
+          ></div>
+        </section>
+
+        <h2 class="text-lg font-semibold mt-7 mb-2">Recent service</h2>
+        <section class="bg-white rounded-xl border border-gray-200">
+          <!-- Wrapper agar bisa scroll horizontal di layar kecil -->
+          <div class="overflow-x-auto">
+            <table
+              class="w-full min-w-[600px] text-left border-collapse rounded-xl bg-white"
+            >
+              <thead class="border-b">
+                <tr class="text-gray-700 text-sm lg:text-base">
+                  <th class="py-3 px-4 font-semibold">#</th>
+                  <th class="py-3 px-4 font-semibold">Service Name</th>
+                  <th class="py-3 px-4 font-semibold">Email Owner</th>
+                  <th class="py-3 px-4 font-semibold">Status</th>
+                  <th class="py-3 px-4 font-semibold">Type</th>
+                  <th class="py-3 px-4 font-semibold text-center">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="services-tbody">
+                <template id="service-row">
+                  <tr class="border-b hover:bg-gray-50 text-sm lg:text-base">
+                    <td class="py-3 px-4 row-id"></td>
+                    <td class="py-3 px-4 row-name"></td>
+                    <td class="py-3 px-4 row-email"></td>
+                    <td class="py-3 px-4">
+                      <span
+                        class="row-status px-3 py-1 rounded-md text-xs lg:text-sm font-medium"
+                      ></span>
+                    </td>
+                    <td class="py-3 px-4 row-type"></td>
+                    <td
+                      class="py-3 px-4 text-center flex lg:block gap-2 justify-center"
+                    >
+                      <button
+                        class="rounded-md text-gray-400 text-sm hover:text-blue-400 edit-btn"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5"
+                        >
+                          <path
+                            d="M21.731 2.269a2.625 2.625 0 0 0-3.712 0l-1.157 1.157 3.712 3.712 1.157-1.157a2.625 2.625 0 0 0 0-3.712ZM19.513 8.199l-3.712-3.712-12.15 12.15a5.25 5.25 0 0 0-1.32 2.214l-.8 2.685a.75.75 0 0 0 .933.933l2.685-.8a5.25 5.25 0 0 0 2.214-1.32L19.513 8.2Z"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        class="text-gray-400 rounded-md text-sm hover:text-red-400 delete-btn"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="size-5"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M16.5 4.478v.227a48.816 48.816 0 0 1 3.878.512.75.75 0 1 1-.256 1.478l-.209-.035-1.005 13.07a3 3 0 0 1-2.991 2.77H8.084a3 3 0 0 1-2.991-2.77L4.087 6.66l-.209.035a.75.75 0 0 1-.256-1.478A48.567 48.567 0 0 1 7.5 4.705v-.227c0-1.564 1.213-2.9 2.816-2.951a52.662 52.662 0 0 1 3.369 0c1.603.051 2.815 1.387 2.815 2.951Zm-6.136-1.452a51.196 51.196 0 0 1 3.273 0C14.39 3.05 15 3.684 15 4.478v.113a49.488 49.488 0 0 0-6 0v-.113c0-.794.609-1.428 1.364-1.452Zm-.355 5.945a.75.75 0 1 0-1.5.058l.347 9a.75.75 0 1 0 1.499-.058l-.346-9Zm5.48.058a.75.75 0 1 0-1.498-.058l-.347 9a.75.75 0 0 0 1.5.058l.345-9Z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </td>
+                  </tr>
+                </template>
+              </tbody>
+            </table>
+          </div>
+
+          <!-- Footer pagination -->
+          <div
+            class="flex flex-col lg:flex-row items-center justify-between lg:justify-end gap-3 px-4 py-3 bg-white rounded-b-xl"
+          >
+            <div class="flex items-center space-x-2">
+              <!-- Prev -->
+              <button
+                class="flex items-center px-3 py-1 text-sm text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200"
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 mr-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M15 19l-7-7 7-7"
+                  />
+                </svg>
+                Prev
+              </button>
+
+              <!-- Next -->
+              <button
+                class="flex items-center px-3 py-1 text-sm text-gray-600 bg-gray-100 rounded-md hover:bg-gray-200"
+              >
+                Next
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  class="h-4 w-4 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M9 5l7 7-7 7"
+                  />
+                </svg>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <footer
+          class="w-full mt-8 text-center lg:text-end text-sm text-gray-500"
+        >
+          © 2025 Admin Panel. All rights reserved.
+        </footer>
+      </main>
+      <!-- Content  -->
+    </div>
+
+    <script src="./js/sidebar.js"></script>
+    <script src="./js/overview.js"></script>
+    <script src="./js/table.js"></script>
+  </body>
+</html>
