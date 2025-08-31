@@ -5,6 +5,7 @@ const toggleBtnMobile = document.getElementById("toggleBtnMobile");
 const logoText = document.getElementById("logoText");
 const arrow = document.getElementById("arrow");
 
+// Toggle Button Mobile
 toggleBtnMobile.addEventListener("click", () => {
   sidebar.classList.toggle("-translate-x-full");
   sidebar.classList.toggle("translate-x-0");
@@ -24,7 +25,7 @@ toggleBtnMobile.addEventListener("click", () => {
   }
 });
 
-// --- MOBILE CLOSE BUTTON (✕) ---
+// Close Button Mobile
 closeBtnMobile.addEventListener("click", (e) => {
   e.preventDefault();
   sidebar.classList.add("-translate-x-full");
@@ -40,7 +41,8 @@ closeBtnMobile.addEventListener("click", (e) => {
   sidebar.classList.remove("w-64");
   sidebar.classList.add("w-16");
 });
-// --- DESKTOP EXPAND/COLLAPSE ---
+
+// Sidebar Dekstop
 let expanded = false;
 toggleBtn.addEventListener("click", () => {
   expanded = !expanded;
@@ -80,10 +82,9 @@ toggleBtn.addEventListener("click", () => {
   }
 });
 
-// --- RESET JIKA BALIK KE DESKTOP ---
+// reset jika balik ke dekstop
 window.addEventListener("resize", () => {
   if (window.innerWidth >= 768) {
-    // reset biar default desktop (collapsed)
     sidebar.classList.remove("translate-x-0");
     sidebar.classList.add("-translate-x-full");
     sidebar.classList.remove("w-64");
@@ -101,7 +102,7 @@ window.addEventListener("resize", () => {
 
 const sidebarMenu = document.getElementById("sidebarMenu");
 
-// daftar menu sidebar
+// Daftar Menu Sidebar
 const menuItems = [
   {
     label: "Dashboard",
@@ -173,7 +174,7 @@ const menuItems = [
   },
 ];
 
-// render menu
+// Render Menu
 menuItems.forEach((item) => {
   const link = document.createElement("a");
   link.href = item.href;

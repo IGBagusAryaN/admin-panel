@@ -19,7 +19,7 @@
   <body class="bg-gray-50 flex lg:p-5">
     <div class="flex w-full space-x-2">
       <!-- Sidebar -->
-      <sidebar
+      <aside
         id="sidebar"
         class="fixed lg:static top-0 left-0 h-screen lg:h-[94vh] w-16 z-50 bg-white rounded-md shadow-lg flex flex-col justify-between items-center py-4 space-y-6 transition-all duration-300 overflow-hidden -translate-x-full lg:translate-x-0"
       >
@@ -65,11 +65,11 @@
             </button>
           </a>
 
-          <!-- Sidebar items inject ke sini -->
+          <!-- Bar Navigation -->
           <div id="sidebarMenu" class="flex flex-col space-y-4 mt-16"></div>
         </div>
-        <!-- Toggle Button -->
 
+        <!-- Toggle Button -->
         <button
           id="toggleBtn"
           class="hidden lg:flex py-2 bg-gray-100 text-gray-400 mt-20 outline-none transition-all duration-300 ease-in-out flex items-center justify-center w-10 h-10 rounded-lg"
@@ -88,10 +88,10 @@
             />
           </svg>
         </button>
-      </sidebar>
+      </aside>
       <!-- Sidebar -->
 
-      <!-- Content -->
+      <!-- Main -->
       <main
         class="flex-1 px-6 transition-all duration-300 w-full !mt-4 overflow-scroll-y !m-0"
       >
@@ -103,10 +103,10 @@
               services, and track revenue all in one place.
             </h4>
           </div>
-          <!-- Toggle Button -->
+          <!-- Toggle Button Mobile-->
           <button
             id="toggleBtnMobile"
-            class="lg:hidden z-40 bg-gray-200 p-2 rounded-lg"
+            class="lg:hidden z-40 bg-gray-100 p-2 rounded-lg"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -154,6 +154,7 @@
                 </svg>
               </div>
             </div>
+            <!-- Avatar -->
             <img
               src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
               alt=""
@@ -163,6 +164,7 @@
         </header>
 
         <section class="mt-10">
+          <!-- Text Welcome -->
           <div class="block lg:hidden">
             <h1 class="text-[28px] font-medium">Welcome, Marco!</h1>
             <h4 class="text-gray-500">
@@ -170,6 +172,8 @@
               services, and track revenue all in one place.
             </h4>
           </div>
+
+          <!-- Overview -->
           <h2 class="text-lg font-semibold mb-2 mt-10 lg:mt-0">Overview</h2>
           <div
             id="statsContainer"
@@ -179,7 +183,7 @@
 
         <h2 class="text-lg font-semibold mt-7 mb-2">Recent service</h2>
         <section class="bg-white rounded-xl border border-gray-200">
-          <!-- Wrapper agar bisa scroll horizontal di layar kecil -->
+          <!-- Table -->
           <div class="overflow-x-auto">
             <table
               class="w-full min-w-[600px] text-left border-collapse rounded-xl bg-white"
@@ -296,13 +300,14 @@
           </div>
         </section>
 
+        <!-- Footer -->
         <footer
           class="w-full mt-8 text-center lg:text-end text-sm text-gray-500"
         >
           © 2025 Admin Panel. All rights reserved.
         </footer>
       </main>
-      <!-- Content  -->
+      <!-- Main  -->
     </div>
 
     <script src="./js/sidebar.js"></script>

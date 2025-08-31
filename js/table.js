@@ -22,6 +22,7 @@ const services = [
 const tbody = document.getElementById("services-tbody");
 const template = document.getElementById("service-row");
 
+// Table data loop
 services.forEach((service, i) => {
   const clone = template.content.cloneNode(true);
 
